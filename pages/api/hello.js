@@ -64,7 +64,7 @@ export default function handler(req, res) {
         console.error(error);
       });
   };
-  discover;
-  //setInterval(discover, 5000);
+  //discover;
+  setInterval(discover, 5000);
   res.status(200).json({ name: "John Doe" });
 }
