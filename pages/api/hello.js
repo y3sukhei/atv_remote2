@@ -30,7 +30,6 @@ export default function handler(req, res) {
       key: forge.pki.privateKeyToPem(keys.privateKey),
     };
   };
-  console.log("Certificate :", generateFull("yesukhei", "Mongolia", "Ulaanbaatar", "Mongolia", "Univision", "idk").key);
 
   const discover = () => {
     mDnsSd
