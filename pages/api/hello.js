@@ -38,9 +38,9 @@ export default function handler(req, res) {
         quick: true,
       })
       .then((device_list) => {
-        console.log("device list ", JSON.stringify(device_list, null, "  "));
+        //console.log("device list ", JSON.stringify(device_list, null, "  "));
         if (device_list.length > 0) {
-          console.log("device found ");
+          console.log("device found ", JSON.stringify(device_list, null, "  "));
           let options = {
             key: generateFull("yesukhei", "Mongolia", "Ulaanbaatar", "Mongolia", "Univision", "idk").key,
 
