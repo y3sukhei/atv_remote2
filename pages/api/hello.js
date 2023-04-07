@@ -35,9 +35,6 @@ export default function handler(req, res) {
     mDnsSd
       .discover({
         name: "_googlecast._tcp.local",
-        filter: (device) => {
-          return device["modelName"] === "MIBOX4";
-        },
         quick: true,
       })
       .then((device_list) => {
