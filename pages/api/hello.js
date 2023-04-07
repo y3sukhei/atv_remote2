@@ -41,6 +41,8 @@ export default function handler(req, res) {
         console.log("device list ", JSON.stringify(device_list, null, "  "));
         if (device_list.length > 0) {
           console.log("device found ", JSON.stringify(device_list, null, "  "));
+          res.status(200).json(JSON.stringify(device_list, null, "  "));
+          clearInterval(setInterval(discover, 5000));
           let options = {
             key: generateFull("yesukhei", "Mongolia", "Ulaanbaatar", "Mongolia", "Univision", "idk").key,
 
@@ -61,7 +63,5 @@ export default function handler(req, res) {
         console.error(error);
       });
   };
-  //discover;
   setInterval(discover, 5000);
-  res.status(200).json({ name: "John Doe" });
 }
