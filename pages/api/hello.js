@@ -38,7 +38,7 @@ export default function (req, res) {
     async function discover() {
       await mDnsSd
         .discover({
-          name: "_googlecast._tcp.local",
+          name: "_androidtvremote2._tcp.local",
           quick: true,
         })
         .then((device_list) => {
@@ -66,8 +66,8 @@ export default function (req, res) {
             //   console.debug("Pairing connected");
             // });
           } else {
-            res.status(201).json({ status: "try again" });
-            //discover();
+            //res.status(201).json({ status: "try again" });
+            discover();
           }
         })
         .catch((error) => {

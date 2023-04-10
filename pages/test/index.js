@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const Test = () => {
-  const [devices, setDevices] = useState("");
+  const [devices, setDevices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [text, setText] = useState("");
 
@@ -16,7 +16,7 @@ const Test = () => {
         setText(response.status);
       }
       if (response.length > 0) {
-        setDevices(response[0].address);
+        setDevices(response);
         setLoading(false);
         console.log("devices :", devices);
       }
@@ -35,7 +35,7 @@ const Test = () => {
         }}>
         FETCH
       </button>
-      {devices}
+      {devices[0]?.fqdn}
       {text}
       <div>Enter</div>
     </>
