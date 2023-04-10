@@ -66,8 +66,8 @@ export default function (req, res) {
             //   console.debug("Pairing connected");
             // });
           } else {
-            //res.status(201).json({ status: "try again" });
-            discover();
+            res.status(201).json({ status: "try again" });
+            // discover();
           }
         })
         .catch((error) => {
