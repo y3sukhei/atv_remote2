@@ -38,7 +38,7 @@ export default function (req, res) {
     async function discover() {
       await mDnsSd
         .discover({
-          name: "_androidtvremote2._tcp.local",
+          name: "_services._dns-sd._udp.local",
           quick: true,
         })
         .then((device_list) => {
