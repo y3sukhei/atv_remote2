@@ -30,6 +30,8 @@ export default function handler(req, res) {
       key: forge.pki.privateKeyToPem(keys.privateKey),
     };
   };
+  //while (deviceList.length > 0) {
+  console.log("discover listening ");
 
   const discover = () => {
     mDnsSd
@@ -39,29 +41,33 @@ export default function handler(req, res) {
       })
       .then((device_list) => {
         console.log("device list ", JSON.stringify(device_list, null, "  "));
+
         if (device_list.length > 0) {
           console.log("device found ", JSON.stringify(device_list, null, "  "));
+
           res.status(200).json(JSON.stringify(device_list, null, "  "));
-          clearInterval(setInterval(discover, 5000));
-          let options = {
-            key: generateFull("yesukhei", "Mongolia", "Ulaanbaatar", "Mongolia", "Univision", "idk").key,
+          // let options = {
+          //   key: generateFull("yesukhei", "Mongolia", "Ulaanbaatar", "Mongolia", "Univision", "idk").key,
 
-            //fs.readFileSync(path.resolve(__dirname,'../../cert/key.pem'))
-            cert: generateFull("yesukhei", "Mongolia", "Ulaanbaatar", "Mongolia", "Univision", "idk").cert,
-            //fs.readFileSync(path.resolve(__dirname,'../../cert/cert.pem'))
-            port: 6467,
-            host: "192.168.10.175",
-            rejectUnauthorized: false,
-          };
+          //   //fs.readFileSync(path.resolve(__dirname,'../../cert/key.pem'))
+          //   cert: generateFull("yesukhei", "Mongolia", "Ulaanbaatar", "Mongolia", "Univision", "idk").cert,
+          //   //fs.readFileSync(path.resolve(__dirname,'../../cert/cert.pem'))
+          //   port: 6467,
+          //   host: "192.168.10.175",
+          //   rejectUnauthorized: false,
+          // };
 
-          tls.connect(options, () => {
-            console.debug("Pairing connected");
-          });
+          // tls.connect(options, () => {
+          //   console.debug("Pairing connected");
+          // });
         }
       })
       .catch((error) => {
         console.error(error);
       });
   };
+  // }
+  //discover();
   setInterval(discover, 5000);
+  // res.status(200).json({ name: "hello" });
 }

@@ -8,7 +8,6 @@ const Test = () => {
 
   async function logJSONData() {
     const response = await fetch("/api/hello");
-
     await response.json().then((response) => {
       if (response.length > 0) {
         setDevices(response);
