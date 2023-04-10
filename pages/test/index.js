@@ -2,15 +2,18 @@ import { useEffect, useState } from "react";
 
 const Test = () => {
   const [devices, setDevices] = useState([]);
-  //   useEffect(() => {
-  //     setInterval(logJSONData, 5000);
-  //   }, []);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // logJSONData();
+  }, []);
 
   async function logJSONData() {
     const response = await fetch("/api/hello");
-    await response.json().then((response) => {
+    await response?.json().then((response) => {
       if (response.length > 0) {
         setDevices(response);
+        setLoading(false);
         console.log("devices :", devices);
       }
       console.log(response);
@@ -21,12 +24,12 @@ const Test = () => {
     <>
       <button
         onClick={() => {
+          // console.log("devices :", devices);
           logJSONData();
         }}>
         FETCH
       </button>
-
-      <a>{devices[0]?.address}</a>
+      {devices.length > 0 ? devices[0].address : <div>Loading...</div>}
 
       <div>Enter</div>
     </>
