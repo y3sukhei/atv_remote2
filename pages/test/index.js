@@ -100,7 +100,7 @@ const Test = () => {
 
     return (
         <>
-            {/* <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     placeholder="Enter IP"
@@ -118,7 +118,7 @@ const Test = () => {
                     onChange={handleSecretChange}
                 />
                 <button type="submit">Enter</button>
-            </form> */}
+            </form>
 
             <main>
                 <div class="phone">
@@ -225,7 +225,7 @@ const Test = () => {
                             </div>
                         </div>
                         <div class="center-btns">
-                            <button class="btn btn-up" onclick="handleKeyPress('up')">
+                            <button class="btn btn-up" onClick={() => handleKeyPress("up")}>
                                 <img
                                     src="https://www.yudiz.com/codepen/smart-remote-control/arrow-up.svg"
                                     alt="arrow"
@@ -240,7 +240,7 @@ const Test = () => {
                             <button class="btn btn-ok" onclick="handleKeyPress('ok')">
                                 OK
                             </button>
-                            <button class="btn btn-down" onclick="handleKeyPress('down')">
+                            <button class="btn btn-down" onClick={() => handleKeyPress("down")}>
                                 <img
                                     src="https://www.yudiz.com/codepen/smart-remote-control/arrow-down.svg"
                                     alt="arrow"

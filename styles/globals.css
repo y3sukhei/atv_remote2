@@ -166,7 +166,6 @@ main {
   /* max-height: 812px; */
   width: 325px;
   height: 850px;
-  object-fit: cover;
   background: var(--phone-bg);
   border: 8px solid var(--theme-dark);
   border-radius: 28px;
